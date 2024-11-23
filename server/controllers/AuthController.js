@@ -6,6 +6,11 @@ import jwt from "jsonwebtoken";
 export const registerUser = async (req, res) => {
   const { username, password, ...otherDetails } = req.body;
 
+  if (!username || !password || !firstname || !lastname) {
+    return res.status(400).json({ message: "All fields are required" });
+  }
+
+
   try {
     // Check if the user already exists
     const existingUser = await UserModel.findOne({ username });
