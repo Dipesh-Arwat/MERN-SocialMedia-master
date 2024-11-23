@@ -26,6 +26,9 @@
   position: absolute;
   bottom: -3rem;
   box-shadow: var(--profileShadow);
+  height: 6rem;
+  object-fit: contain;
+  background-color: white;
 }
 
 /* Profile Name */
