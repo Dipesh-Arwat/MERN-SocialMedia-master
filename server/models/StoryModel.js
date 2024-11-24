@@ -1,16 +1,23 @@
 import mongoose from "mongoose";
 
-const StorySchema = mongoose.Schema(
+const storySchema = mongoose.Schema(
   {
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: "Users", required: true },
-    storyImage: { type: String, required: true }, 
-    type: { type: String, enum: ['image', 'video'], required: true }, 
-    createdAt: { type: Date, default: Date.now}, 
-    expiresAt: { type: Date, required: true },  
-    viewers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]  
+    userId: { type: String, required: true },
+    image: String,
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+    expiresAt: {
+      type: Date,
+      default: () => Date.now() + 24 * 60 * 60 * 1000, // 24 hours
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
-const StoryModel = mongoose.model("Story", StorySchema);
+const StoryModel = mongoose.model("Stories", storySchema);
+
 export default StoryModel;

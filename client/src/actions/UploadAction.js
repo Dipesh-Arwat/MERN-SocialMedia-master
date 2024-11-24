@@ -19,3 +19,13 @@ export const uploadPost = (data) => async (dispatch) => {
     dispatch({ type: "UPLOAD_FAIL" });
   }
 };
+
+export const uploadStory = (story, data) => async (dispatch) => {
+  try {
+    await UploadApi.uploadImage(data);
+    await UploadApi.uploadStory(story);
+  } catch (error) {
+    console.error(error);
+  }
+};
+

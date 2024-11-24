@@ -12,34 +12,7 @@ const ProfileCard = ({ location }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleStoryUpload = async (storyImage, userId) => {
-    // Create a FormData object to send the file and user info
-    const formData = new FormData();
-    formData.append("storyImage", storyImage);
-    formData.append("userId", userId);
-  
-    try {
-      // Send a POST request to the backend to upload the story
-      const response = await fetch("https://mern-socialmedia-master-backend.onrender.com/stories/upload", {
-        method: "POST",
-        headers: {
-          "Content-Type": "multipart/form-data", // Ensure the backend can handle the file
-        },
-        body: formData, // Attach the form data (image)
-      });
-      if (!response.ok) {
-        console.error("Failed to upload story:", response.status);
-        return;
-      }
-  
-  
-      const result = await response.json();
-      console.log("Story uploaded:", result);
-       
-    } catch (error) {
-      console.error("Error uploading story:", error);
-    }
-  };
+  const [storyModal, setStoryModal] = useState(false);
   
 
   return (
@@ -102,13 +75,8 @@ const ProfileCard = ({ location }) => {
         </span>
       )}
 
-      <button onClick={() => setIsModalOpen(true)}>Upload Story</button>
-      {isModalOpen && (
-        <UploadStoryModal
-          onClose={() => setIsModalOpen(false)}
-          onUpload={handleStoryUpload}
-        />
-      )}
+<button onClick={() => setStoryModal(true)}>Upload Story</button>
+{storyModal && <UploadStory />}
 
     </div>
   );

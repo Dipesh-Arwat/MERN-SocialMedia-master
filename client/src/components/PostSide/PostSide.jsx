@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Posts from "../Posts/Posts";
 import PostShare from "../PostShare/PostShare";
 import "./PostSide.css";
-import Story from "../Story/Story";
+import axios from "axios";
 
 const PostSide = () => {
 
@@ -10,19 +10,22 @@ const PostSide = () => {
 
   useEffect(() => {
     const fetchStories = async () => {
-      const response = await fetch("https://mern-socialmedia-master-backend.onrender.com/stories");
-      const data = await response.json();
+      const { data } = await axios.get("/stories");
       setStories(data);
     };
+
     fetchStories();
   }, []);
 
   return (
     <div className="PostSide">
       <PostShare/>
-      <div className="stories">
+      <div className="Stories">
         {stories.map((story) => (
-          <Story key={story._id} story={story} />
+          <div key={story._id}>
+            <img src={story.image} alt="story" />
+            <span>{story.userId.username}</span>
+          </div>
         ))}
       </div>
       <Posts/>
