@@ -20,12 +20,4 @@ export const uploadPost = (data) => async (dispatch) => {
   }
 };
 
-export const uploadStory = (story, data) => async (dispatch) => {
-  try {
-    await UploadApi.uploadImage(data);
-    await UploadApi.uploadStory(story);
-  } catch (error) {
-    console.error(error);
-  }
-};
 
