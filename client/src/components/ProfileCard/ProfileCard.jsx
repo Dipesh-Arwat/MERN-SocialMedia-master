@@ -19,7 +19,7 @@ const ProfileCard = ({ location }) => {
   
     try {
       // Send a POST request to the backend to upload the story
-      const response = await fetch("/stories/upload", {
+      const response = await fetch("https://mern-socialmedia-master-backend.onrender.com/stories/upload", {
         method: "POST",
         headers: {
           "Content-Type": "multipart/form-data", // Ensure the backend can handle the file

@@ -10,7 +10,7 @@ const PostSide = () => {
 
   useEffect(() => {
     const fetchStories = async () => {
-      const response = await fetch("/stories");
+      const response = await fetch("https://mern-socialmedia-master-backend.onrender.com/stories");
       const data = await response.json();
       setStories(data);
     };
