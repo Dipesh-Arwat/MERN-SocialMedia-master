@@ -1,6 +1,6 @@
 import express from "express";
 import StoryModel from "../models/StoryModel.js";
-import upload from "../upload.js";
+import upload from "./UploadRoute.js";
 
 const router = express.Router();
 

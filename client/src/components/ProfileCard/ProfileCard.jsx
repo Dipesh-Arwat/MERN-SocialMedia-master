@@ -15,7 +15,8 @@ const ProfileCard = ({ location }) => {
   const handleStoryUpload = async (storyImage) => {
     // Create a FormData object to send the file and user info
     const formData = new FormData();
-    formData.append("storyImage", storyImage); // Attach the selected image
+    formData.append("storyImage", storyImage);
+    formData.append("userId", userId);
   
     try {
       // Send a POST request to the backend to upload the story
