@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import "./ProfileCard.css";
-import Cover from "../../img/cover.jpg";
-import Profile from "../../img/profileImg.jpg";
+
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import UploadStoryModal from "../UploadStoryModal/UploadStoryModal";
+import UploadStory from "../UploadStory/UploadStory";
+
 const ProfileCard = ({ location }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
   const posts = useSelector((state) => state.postReducer.posts)
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+ 
 
   const [storyModal, setStoryModal] = useState(false);
   
