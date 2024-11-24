@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./ProfileCard.css";
 import Cover from "../../img/cover.jpg";
 import Profile from "../../img/profileImg.jpg";
@@ -19,25 +20,29 @@ const ProfileCard = ({ location }) => {
     formData.append("userId", userId);
   
     try {
-      // Send a POST request to the backend to upload the story
-      const response = await fetch("https://mern-socialmedia-master-backend.onrender.com/stories/upload", {
-        method: "POST",
-        headers: {
-          "Content-Type": "multipart/form-data", // Ensure the backend can handle the file
-        },
-        body: formData, // Attach the form data (image)
-      });
-      if (!response.ok) {
-        console.error("Failed to upload story:", response.status);
-        return;
-      }
+      // Use Axios to send a POST request to the backend
+      const response = await axios.post(
+        "https://mern-socialmedia-master-backend.onrender.com/stories/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data", // Specify that the request contains form-data
+          },
+        }
+      );
   
-  
-      const result = await response.json();
-      console.log("Story uploaded:", result);
-       
+      console.log("Story uploaded successfully:", response.data);
     } catch (error) {
-      console.error("Error uploading story:", error);
+      if (error.response) {
+        // Server responded with a status code outside the 2xx range
+        console.error("Failed to upload story:", error.response.status, error.response.data);
+      } else if (error.request) {
+        // Request was made, but no response was received
+        console.error("No response from the server:", error.request);
+      } else {
+        // Something else happened during the request setup
+        console.error("Error uploading story:", error.message);
+      }
     }
   };
   

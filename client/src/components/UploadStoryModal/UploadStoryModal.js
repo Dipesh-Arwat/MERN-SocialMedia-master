@@ -10,9 +10,12 @@ const UploadStoryModal = ({ onClose, onUpload }) => {
 
   const handleUpload = () => {
     if (storyImage) {
-      onUpload(storyImage);
-      onClose();
-    }
+        const userId = "current_user_id"; // Replace with the actual logged-in user ID
+        onUpload(storyImage, userId);
+        onClose();
+      } else {
+        console.error("No image selected for upload.");
+      }
   };
 
   return (
