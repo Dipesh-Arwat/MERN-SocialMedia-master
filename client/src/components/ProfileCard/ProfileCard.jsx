@@ -26,14 +26,15 @@ const ProfileCard = ({ location }) => {
         },
         body: formData, // Attach the form data (image)
       });
+      if (!response.ok) {
+        console.error("Failed to upload story:", response.status);
+        return;
+      }
+  
   
       const result = await response.json();
-      if (response.ok) {
-        console.log("Story uploaded:", result);
-        // Optionally, update the UI or show a success message
-      } else {
-        console.error("Error uploading story:", result.message);
-      }
+      console.log("Story uploaded:", result);
+       
     } catch (error) {
       console.error("Error uploading story:", error);
     }

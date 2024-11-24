@@ -19,13 +19,12 @@ const PostSide = () => {
 
   return (
     <div className="PostSide">
-
+      <PostShare/>
       <div className="stories">
         {stories.map((story) => (
           <Story key={story._id} story={story} />
         ))}
       </div>
-      <PostShare/>
       <Posts/>
     </div>
   );
