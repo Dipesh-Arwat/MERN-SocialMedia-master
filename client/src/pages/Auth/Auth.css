@@ -64,3 +64,91 @@
     align-items: center;
     justify-content: center;
 }
+.btn-box{
+  width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .Auth {
+    flex-direction: column; /* Stack elements vertically */
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .a-left {
+    text-align: center; /* Center align the logo and text */
+  }
+
+  .a-left > img {
+    width: 3rem; /* Smaller logo */
+    height: 3rem;
+  }
+
+  .Webname > h1 {
+    font-size: 2rem; /* Smaller heading */
+  }
+
+  .Webname > h6 {
+    font-size: 0.75rem; /* Smaller subheading */
+  }
+
+  .a-right {
+    width: 100%; /* Full-width form on small devices */
+  }
+
+  .authForm {
+    padding: 1.2rem; /* Adjust padding for smaller screens */
+  }
+
+  .infoInput {
+    width: 90%; /* Reduce input width slightly */
+    font-size: 0.9rem; /* Adjust font size */
+  }
+
+  .infoButton {
+    width: 90%; /* Reduce button width */
+    font-size: 1rem;
+    padding: 5px;
+  }
+  .btn-box{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Screens smaller than 480px (phones) */
+@media screen and (max-width: 480px) {
+  .Auth {
+    padding: 0.5rem;
+  }
+
+  .a-left > img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .Webname > h1 {
+    font-size: 1.8rem;
+  }
+
+  .Webname > h6 {
+    font-size: 0.7rem;
+  }
+
+  .infoInput {
+    width: 100%; /* Full-width inputs */
+    font-size: 0.85rem;
+  }
+
+  .infoButton {
+    width: 100%; /* Full-width buttons */
+    font-size: 1rem;
+    padding: 5px;
+  }
+  .btn-box{
+    display: flex;
+    flex-direction: column;
+  }
+}
