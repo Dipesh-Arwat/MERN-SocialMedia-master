@@ -5,22 +5,33 @@ import upload from "../upload.js";
 const router = express.Router();
 
 router.post("/upload", upload.single("storyImage"), async (req, res) => {
-    const { userId } = req.body; // Assuming userId is coming from the request body
-    const storyImage = req.file.path; // Path to the uploaded image
-
     try {
-        // Save the story in the database
-        const newStory = new StoryModel({
-            userId,
-            storyImage,
-        });
-
-        const savedStory = await newStory.save();
-        res.status(201).json(savedStory); // Respond with the saved story
+      // Log request body and file
+      console.log("Request body:", req.body);
+      console.log("Uploaded file:", req.file);
+  
+      const { userId } = req.body;
+      const storyImage = req.file?.path;
+  
+      // Validate required fields
+      if (!userId || !storyImage) {
+        return res.status(400).json({ message: "Missing userId or storyImage" });
+      }
+  
+      // Save story to the database
+      const newStory = new StoryModel({
+        userId,
+        storyImage,
+      });
+  
+      const savedStory = await newStory.save();
+      console.log("Story saved successfully:", savedStory);
+      res.status(201).json(savedStory);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+      console.error("Error uploading story:", error);
+      res.status(500).json({ message: "Server error while uploading story" });
     }
-});
+  });
 
 // Fetch all stories
 router.get("/", async (req, res) => {
