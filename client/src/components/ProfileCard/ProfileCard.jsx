@@ -12,7 +12,7 @@ const ProfileCard = ({ location }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleStoryUpload = async (storyImage) => {
+  const handleStoryUpload = async (storyImage, userId) => {
     // Create a FormData object to send the file and user info
     const formData = new FormData();
     formData.append("storyImage", storyImage);
