@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ProfileCard.css";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import UploadStory from "../UploadStory/UploadStory";
+
 
 const ProfileCard = ({ location }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
@@ -12,7 +12,7 @@ const ProfileCard = ({ location }) => {
 
  
 
-  const [storyModal, setStoryModal] = useState(false);
+
   
 
   return (
@@ -75,8 +75,7 @@ const ProfileCard = ({ location }) => {
         </span>
       )}
 
-<button onClick={() => setStoryModal(true)}>Upload Story</button>
-{storyModal && <UploadStory />}
+
 
     </div>
   );
