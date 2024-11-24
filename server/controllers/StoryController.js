@@ -21,6 +21,7 @@ export const getStories = async (req, res) => {
     }).populate("userId", "username profilePicture");
     res.status(200).json(stories);
   } catch (error) {
+    console.error("Error fetching stories:", error.message);
     res.status(500).json({ message: error.message });
   }
 };
