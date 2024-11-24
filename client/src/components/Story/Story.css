@@ -1,0 +1,23 @@
+.story {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .storyImage {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 2px solid #ff5722;
+    object-fit: cover;
+  }
+  
+  .story span {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: #555;
+  }
+  

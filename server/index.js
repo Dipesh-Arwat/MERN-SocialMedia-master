@@ -12,6 +12,7 @@ import PostRoute from './routes/PostRoute.js'
 import UploadRoute from './routes/UploadRoute.js'
 import ChatRoute from './routes/ChatRoute.js'
 import MessageRoute from './routes/MessageRoute.js'
+import storyRoute from "./routes/StoryRoute.js";
 
 const app = express();
 
@@ -45,3 +46,4 @@ app.use('/posts', PostRoute)
 app.use('/upload', UploadRoute)
 app.use('/chat', ChatRoute)
 app.use('/message', MessageRoute)
+app.use("/stories", storyRoute);

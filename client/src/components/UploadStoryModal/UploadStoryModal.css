@@ -1,0 +1,33 @@
+.uploadStoryModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modalContent {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .modalContent h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .modalContent input {
+    margin: 1rem 0;
+  }
+  
+  .modalContent button {
+    margin: 0.5rem;
+  }
+  
