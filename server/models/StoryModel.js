@@ -4,7 +4,10 @@ const StorySchema = mongoose.Schema(
   {
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "Users", required: true },
     storyImage: { type: String, required: true }, 
-    createdAt: { type: Date, default: Date.now, expires: 86400 }, 
+    type: { type: String, enum: ['image', 'video'], required: true }, 
+    createdAt: { type: Date, default: Date.now}, 
+    expiresAt: { type: Date, required: true },  
+    viewers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]  
   },
   { timestamps: true }
 );

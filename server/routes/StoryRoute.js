@@ -1,5 +1,6 @@
 import express from "express";
 import StoryModel from "../models/StoryModel.js";
+import UserModel from "../models/userModel.js";
 import upload from "../upload.js";
 
 const router = express.Router();
@@ -20,11 +21,14 @@ router.post("/upload", upload.single("storyImage"), async (req, res) => {
   
       // Save story to the database
       const newStory = new StoryModel({
-        userId,
-        storyImage,
+        userId : req.user._id,
+        storyImage : `https://mern-socialmedia-master-backend.onrender.com/images/${req.file.filename}`,
+        type,
+      expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
       });
   
       const savedStory = await newStory.save();
+      await UserModel.findByIdAndUpdate(req.user._id, { $push: { stories: newStory._id } });
       console.log("Story saved successfully:", savedStory);
       res.status(201).json(savedStory);
     } catch (error) {

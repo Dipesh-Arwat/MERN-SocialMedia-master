@@ -32,6 +32,7 @@ const UserSchema = mongoose.Schema(
     country: String,
     followers: [],
     following: [],
+    stories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Story' }],
   },
   { timestamps: true }
 );
