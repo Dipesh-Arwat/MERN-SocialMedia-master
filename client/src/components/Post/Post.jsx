@@ -12,14 +12,22 @@ const Post = ({ data }) => {
   const [liked, setLiked] = useState(data.likes.includes(user._id));
   const [likes, setLikes] = useState(data.likes.length)
 
-  
+  const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
+
+
   const handleLike = () => {
     likePost(data._id, user._id);
     setLiked((prev) => !prev);
-    liked? setLikes((prev)=>prev-1): setLikes((prev)=>prev+1)
+    liked ? setLikes((prev) => prev - 1) : setLikes((prev) => prev + 1)
   };
   return (
     <div className="Post">
+
+      <div className="post-header">
+        <img className="post-header-img" src={serverPublic + user.profilePicture} alt="User Profile" />
+        <span className="post-header-span">{user.username}</span>
+      </div>
+
       <img
         src={data.image ? process.env.REACT_APP_PUBLIC_FOLDER + data.image : ""}
         alt=""

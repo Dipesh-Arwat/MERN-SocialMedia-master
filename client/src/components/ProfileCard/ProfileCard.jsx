@@ -10,18 +10,13 @@ const ProfileCard = ({ location }) => {
   const posts = useSelector((state) => state.postReducer.posts)
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
 
- 
-
-
-  
-
   return (
     <div className="ProfileCard">
       <div className="ProfileImages">
         <img src={
           user.coverPicture
             ? serverPublic + user.coverPicture
-            : serverPublic + "defaultCover.jpg"
+            : serverPublic + "cover.jpg"
         } alt="CoverImage" />
         <img
           src={

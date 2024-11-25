@@ -21,7 +21,7 @@ export const getPost = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const post = await PostModel.findById(id);
+    const post = await PostModel.findById(id).populate('userId', 'username profileImage');
     res.status(200).json(post);
   } catch (error) {
     res.status(500).json(error);
