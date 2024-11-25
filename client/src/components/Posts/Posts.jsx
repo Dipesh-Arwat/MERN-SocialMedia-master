@@ -18,7 +18,7 @@ const Posts = () => {
   return (
     <div className="Posts">
       {loading ? (
-        <div className="loading-spinner">Fetching posts...</div>
+        <><div className="loading-spinner"></div><p>Fetching posts...</p> </>
       ) : (
         posts.map((post, id) => {
           return <Post data={post} key={id} />;

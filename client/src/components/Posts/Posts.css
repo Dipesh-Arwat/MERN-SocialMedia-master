@@ -1,9 +1,11 @@
-.Posts
-{
+.Posts {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
 }
+
 .loading-spinner {
     display: inline-block;
     width: 50px;
@@ -13,13 +15,14 @@
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 20px;
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
