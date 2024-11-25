@@ -15,6 +15,10 @@ import MessageRoute from './routes/MessageRoute.js'
 
 
 const app = express();
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 // middleware
@@ -30,6 +34,11 @@ app.options("*", cors());
 // to serve images inside public folder
 app.use(express.static('public')); 
 app.use('/images', express.static('images'));
+
+app.use(express.static(path.resolve(__dirname, 'client', 'build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 
 
 dotenv.config();

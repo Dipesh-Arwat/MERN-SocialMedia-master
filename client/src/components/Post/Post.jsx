@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Post.css";
 import Comment from "../../img/comment.png";
 import Share from "../../img/share.png";
@@ -40,6 +40,14 @@ const timeAgo = (timestamp) => {
   return `${months} months ago`;
 };
 
+const [renderedTime, setRenderedTime] = useState(timeAgo(data.createdAt));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRenderedTime(timeAgo(data.createdAt));
+    }, 60000); 
+    return () => clearInterval(interval);
+  }, [data.createdAt]);
 
   return (
     <div className="Post">
@@ -47,7 +55,7 @@ const timeAgo = (timestamp) => {
       <div className="post-top">
         <img className="post-top-img" src={serverPublic + user.profilePicture} alt="User Profile" />
         <span className="post-top-span">{user.username}</span>
-        <span className="post-top-time">{timeAgo(user.createdAt)}</span>
+        <span className="post-top-time">{renderedTime}</span>
       </div>
 
       <img
