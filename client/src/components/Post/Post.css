@@ -49,3 +49,8 @@
     color: #888; /* Lighter color for less emphasis */
     margin-top: 2px; /* Space between username and time */
   }
+  .post-top-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
