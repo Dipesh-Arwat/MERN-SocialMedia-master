@@ -3,6 +3,10 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 // routes
@@ -29,7 +33,7 @@ app.options("*", cors());
 
 // to serve images inside public folder
 app.use(express.static('public')); 
-app.use('/images', express.static('images'));
+app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
 
 
 
