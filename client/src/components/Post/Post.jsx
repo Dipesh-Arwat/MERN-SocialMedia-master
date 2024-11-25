@@ -23,9 +23,9 @@ const Post = ({ data }) => {
   return (
     <div className="Post">
 
-      <div className="post-header">
-        <img className="post-header-img" src={serverPublic + user.profilePicture} alt="User Profile" />
-        <span className="post-header-span">{user.username}</span>
+      <div className="post-top">
+        <img className="post-top-img" src={serverPublic + user.profilePicture} alt="User Profile" />
+        <span className="post-top-span">{user.username}</span>
       </div>
 
       <img

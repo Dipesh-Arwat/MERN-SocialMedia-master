@@ -21,7 +21,7 @@
     gap: 1.5rem;
 }
 
-.post-header {
+.post-top {
     display: flex;
     align-items: center;
     padding: 10px;
@@ -29,7 +29,7 @@
     border-bottom: 1px solid #ddd; 
   }
   
-  .post-header-img {
+  .post-top-img {
     width: 40px; 
     height: 40px; 
     border-radius: 50%; 
@@ -38,7 +38,7 @@
     border: 1px solid #ccc; 
   }
   
-  .post-header-span {
+  .post-top-span {
     font-size: 16px; 
     font-weight: bold; 
     color: #333; 
